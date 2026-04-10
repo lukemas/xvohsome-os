@@ -1,15 +1,25 @@
 "use client";
 
 import { Window } from "@/components/ui/Window";
+import { getWindowTitle } from "@/lib/app-registry";
+import { useWindowStore, type WindowType } from "@/lib/window-store";
+import { AboutWindow } from "@/components/windows/AboutWindow";
+import { BeatStore } from "@/components/windows/BeatStore";
+import { FilesWindow } from "@/components/windows/FilesWindow";
 import { MusicPlayer } from "@/components/windows/MusicPlayer";
-import { useWindowStore } from "@/lib/window-store";
 
-function windowTitle(type: string): string {
+function renderWindowContent(type: WindowType) {
   switch (type) {
-    case "music-player":
-      return "Music Player — Xvohsome";
+    case "music":
+      return <MusicPlayer />;
+    case "about":
+      return <AboutWindow />;
+    case "beats":
+      return <BeatStore />;
+    case "files":
+      return <FilesWindow />;
     default:
-      return "Window";
+      return null;
   }
 }
 
@@ -23,12 +33,12 @@ export function WindowManager() {
       {windows.map((w) => (
         <Window
           key={w.id}
-          title={windowTitle(w.type)}
+          title={getWindowTitle(w.type)}
           initialPosition={w.position}
           onClose={() => closeWindow(w.id)}
           onPositionCommit={(pos) => updateWindowPosition(w.id, pos)}
         >
-          {w.type === "music-player" ? <MusicPlayer /> : null}
+          {renderWindowContent(w.type)}
         </Window>
       ))}
     </>

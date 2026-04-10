@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export type WindowType = "music-player";
+export type WindowType = "music" | "about" | "beats" | "files";
 
 export interface DesktopWindow {
   id: string;
