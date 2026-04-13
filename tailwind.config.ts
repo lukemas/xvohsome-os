@@ -18,7 +18,8 @@ const config: Config = {
       },
       colors: {
         win: {
-          title: "#000080",
+          /** Title bar & selection accent (dark purple, not classic Win navy) */
+          title: "#3d2a5c",
           surface: "#c0c0c0",
           borderLight: "#ffffff",
           borderDark: "#808080",

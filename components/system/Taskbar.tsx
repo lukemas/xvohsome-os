@@ -38,7 +38,7 @@ export function Taskbar() {
       {menuOpen ? (
         <button
           type="button"
-          className="fixed inset-0 bottom-9 z-20 cursor-default bg-black/25"
+          className="fixed inset-0 bottom-9 z-20 cursor-default bg-[#0a0514]/40"
           aria-label="Close start menu"
           onClick={closeMenu}
         />
@@ -71,7 +71,7 @@ export function Taskbar() {
                   <button
                     type="button"
                     role="menuitem"
-                    className="flex w-full items-center gap-2 px-2 py-1.5 text-left text-[11px] hover:bg-[#000080] hover:text-white"
+                    className="flex w-full items-center gap-2 px-2 py-1.5 text-left text-[11px] hover:bg-win-title hover:text-white"
                     onClick={() => openApp(app.type)}
                   >
                     <span className="w-5 text-center" aria-hidden>

@@ -243,10 +243,10 @@ export function MusicPlayer() {
     <div className="flex min-w-[300px] flex-col gap-2 text-black">
       {/* Menu strip */}
       <div className="flex gap-3 border-b border-win-borderDark pb-1 text-[10px] text-[#202020]">
-        <span className="underline decoration-[#000080]">File</span>
-        <span className="underline decoration-[#000080]">View</span>
-        <span className="underline decoration-[#000080]">Options</span>
-        <span className="underline decoration-[#000080]">Help</span>
+        <span className="underline decoration-win-title">File</span>
+        <span className="underline decoration-win-title">View</span>
+        <span className="underline decoration-win-title">Options</span>
+        <span className="underline decoration-win-title">Help</span>
       </div>
 
       {/* LCD + visualizer */}
@@ -289,7 +289,7 @@ export function MusicPlayer() {
       <div className="flex flex-col gap-0.5">
         <div className="h-2 w-full border border-win-borderDark bg-black shadow-win98in">
           <div
-            className="h-full bg-[#000080]"
+            className="h-full bg-win-title"
             style={{
               width: duration ? `${(currentTime / duration) * 100}%` : "0%",
             }}
@@ -303,7 +303,7 @@ export function MusicPlayer() {
           disabled={!activeTrack || !duration}
           value={duration ? Math.round((currentTime / duration) * 1000) : 0}
           onChange={(e) => onSeek(Number(e.target.value))}
-          className="h-1 w-full cursor-pointer accent-[#000080] disabled:opacity-40"
+          className="h-1 w-full cursor-pointer accent-win-title disabled:opacity-40"
           aria-label="Seek"
         />
       </div>
@@ -406,7 +406,7 @@ export function MusicPlayer() {
               setVolume(Number(e.target.value) / 100);
               setMuted(false);
             }}
-            className="h-1 w-20 accent-[#000080]"
+            className="h-1 w-20 accent-win-title"
             aria-label="Volume"
           />
         </div>
@@ -465,8 +465,8 @@ export function MusicPlayer() {
                   <li key={t.id}>
                     <button
                       type="button"
-                      className={`flex w-full items-center gap-2 px-2 py-1 text-left text-[11px] hover:bg-[#000080] hover:text-white ${
-                        selected ? "bg-[#000080] text-white" : "bg-win-surface text-black"
+                      className={`flex w-full items-center gap-2 px-2 py-1 text-left text-[11px] hover:bg-win-title hover:text-white ${
+                        selected ? "bg-win-title text-white" : "bg-win-surface text-black"
                       }`}
                       onClick={() => loadAndPlay(t, true)}
                     >

@@ -27,14 +27,14 @@ export function FilesWindow() {
             key={section.name}
             className="border border-win-borderDark bg-white shadow-win98in"
           >
-            <div className="border-b border-win-borderDark bg-[#000080] px-2 py-0.5 text-[11px] font-bold text-white">
+            <div className="border-b border-win-borderDark bg-win-title px-2 py-0.5 text-[11px] font-bold text-white">
               📂 {section.name}
             </div>
             <ul className="divide-y divide-[#c0c0c0] bg-win-surface">
               {section.items.map((item) => (
                 <li
                   key={item}
-                  className="flex items-center gap-2 px-2 py-1 text-[11px] hover:bg-[#000080] hover:text-white"
+                  className="flex items-center gap-2 px-2 py-1 text-[11px] hover:bg-win-title hover:text-white"
                 >
                   <span aria-hidden>📄</span>
                   {item}

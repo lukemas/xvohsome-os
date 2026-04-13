@@ -9,6 +9,10 @@ interface WindowProps {
   initialPosition: { x: number; y: number };
   onClose: () => void;
   onPositionCommit: (position: { x: number; y: number }) => void;
+  /** Extra classes on the outer window frame (e.g. min width for folder views). */
+  className?: string;
+  /** Override default gray padded content area (e.g. flush white client surface). */
+  contentClassName?: string;
 }
 
 export function Window({
@@ -17,6 +21,8 @@ export function Window({
   initialPosition,
   onClose,
   onPositionCommit,
+  className,
+  contentClassName,
 }: WindowProps) {
   const x = useMotionValue(initialPosition.x);
   const y = useMotionValue(initialPosition.y);
@@ -29,7 +35,7 @@ export function Window({
 
   return (
     <motion.div
-      className="absolute z-10 flex min-w-[280px] flex-col overflow-hidden rounded-sm border border-win-borderDarker bg-win-surface font-retro text-sm text-black shadow-win98out"
+      className={`absolute z-10 flex min-w-[280px] flex-col overflow-hidden rounded-sm border border-win-borderDarker bg-win-surface font-retro text-sm text-black shadow-win98out ${className ?? ""}`}
       style={{ x, y }}
       drag
       dragControls={dragControls}
@@ -59,7 +65,11 @@ export function Window({
           ×
         </button>
       </div>
-      <div className="min-h-[120px] bg-win-surface p-3 shadow-win98in">{children}</div>
+      <div
+        className={`min-h-[120px] bg-win-surface p-3 shadow-win98in ${contentClassName ?? ""}`}
+      >
+        {children}
+      </div>
     </motion.div>
   );
 }

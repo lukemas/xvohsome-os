@@ -8,3 +8,27 @@ body {
   margin: 0;
   overflow: hidden;
 }
+
+/* Dark purple “tiled bitmap” desktop */
+.desktop-bitmap-bg {
+  background-color: #12081c;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Crect width='8' height='8' fill='%23180d26'/%3E%3Cpath fill='%23221838' d='M0 0h4v4H0zm4 4h4v4H4z'/%3E%3C/svg%3E"),
+    radial-gradient(
+      ellipse 130% 85% at 50% -10%,
+      rgba(120, 80, 200, 0.22) 0%,
+      transparent 52%
+    ),
+    linear-gradient(
+      168deg,
+      #2a1a4a 0%,
+      #1a0f2e 38%,
+      #0f0618 72%,
+      #08030e 100%
+    );
+  background-size: 8px 8px, 100% 100%, 100% 100%;
+}
+
+.TrackListWidget_widgetContainer__VVETD{
+  border-radius: 0 !important;
+}
